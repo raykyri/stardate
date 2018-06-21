@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Stardate</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="twitter:image" content="">
+    <meta property="og:image" content="">
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html, body {
+        padding: 20px;
+        margin: 0;
+        position: relative;
+        width: 100%;
+        color: #111;
+        font: 17px Inconsolata, Menlo, monospace;
+        text-rendering: optimizeLegibility;
+      }
+      a {
+        color: #111;
+      }
+      .placeholder {
+        padding-top: 100px;
+        text-align: center;
+      }
+      span {
+        color: #ddd;
+      }
+      </style>
+  </head>
+  <body>
+    <div class="stardate">Stardate</div>
+    <br/>
+    <script src="/moment.js"></script>
+    <script>
+      var i = 0;
+      var dt = moment("20180618").startOf("day");
+      while (dt.isBefore(moment())) {
+          document.write(
+                          dt.format("ddd") +
+                          "&nbsp;&nbsp;" +
+                          dt.format("YYYY.MM.DD") +
+                          "&nbsp;&nbsp; <span>--</span>" +
+                          "&nbsp;&nbsp;" +
+                          "12:00 AM" +
+                          "&nbsp;&nbsp;" +
+                          i + ".0" +
+                          "&nbsp;&nbsp; <span>--</span>" +
+                          "&nbsp;&nbsp;" +
+                          "12:00 PM" +
+                          "&nbsp;&nbsp;" +
+                          i + ".5" +
+                          "&nbsp;&nbsp; <span>--</span>"
+          );
+          document.write("<br/>");
+          dt = dt.add(1, "days");
+          i++;
+      }
+    </script>
+  </body>
+</html>
